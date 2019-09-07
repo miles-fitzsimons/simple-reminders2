@@ -1,15 +1,16 @@
 import React from "react";
-import { StyleSheet, Text } from "react-native";
+import { StyleSheet, View, StatusBar } from "react-native";
 
-const Main = () => <Text>Yep</Text>;
+const Main = ({ children }) => <View style={styles.main}>{children}</View>;
 
 export default Main;
 
 const styles = StyleSheet.create({
-  header: {
-    // flex: 1,
-    // backgroundColor: "#fff",
-    // alignItems: "center",
-    // justifyContent: "center"
+  main: {
+    alignItems: "center",
+    display: "flex",
+    flexDirection: "column",
+    paddingTop: StatusBar.currentHeight,
+    height: "100%"
   }
 });

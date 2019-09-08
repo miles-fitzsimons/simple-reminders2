@@ -1,12 +1,13 @@
 import React from "react";
-import { ThemeProvider } from "react-native-elements";
 
 import Button from "./Button";
 import Main from "./Main";
+import RemindersList from "./RemindersList";
 
-const Home = props => (
+const Home = () => (
   <>
     <Main>
+      <RemindersList />
       <Button />
     </Main>
   </>

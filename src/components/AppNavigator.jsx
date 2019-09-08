@@ -1,14 +1,12 @@
-import React from "react";
 import { createStackNavigator } from "react-navigation-stack";
 
+import AddReminder from "./AddReminder";
 import Home from "./Home";
-import { Text } from "react-native";
-
-const AddReminder = () => <Text>ADDDDDD</Text>;
 
 const AppNavigator = createStackNavigator({
   Home: {
-    screen: Home
+    // screen: Home
+    screen: AddReminder
   },
   AddReminder: {
     screen: AddReminder

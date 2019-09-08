@@ -1,5 +1,11 @@
 import React from "react";
-import { StyleSheet, View, StatusBar } from "react-native";
+import {
+  Dimensions,
+  StyleSheet,
+  View,
+  StatusBar,
+  ScrollView
+} from "react-native";
 
 const Main = ({ children }) => <View style={styles.main}>{children}</View>;
 
@@ -10,7 +16,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     display: "flex",
     flexDirection: "column",
-    paddingTop: StatusBar.currentHeight,
+    // paddingTop: StatusBar.currentHeight,
     height: "100%"
+    // width: Dimensions.get("window").width * 0.8
   }
 });

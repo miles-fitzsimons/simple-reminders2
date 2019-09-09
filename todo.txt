@@ -1,1 +1,7 @@
-is <Main> doing anything?
+Refactor AddReminder
+
+
+Put <Main> Around evrything
+refactor everything
+make months display in words
+tomorrow, next day etc

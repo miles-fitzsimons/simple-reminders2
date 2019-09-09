@@ -1,5 +1,5 @@
 Refactor AddReminder
-
+uninstall dayjs and device info 
 
 Put <Main> Around evrything
 refactor everything

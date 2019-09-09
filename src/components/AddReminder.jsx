@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { Dimensions, StyleSheet, View, Button } from "react-native";
 import { Input } from "react-native-elements";
-import DateTimePicker from "react-native-modal-datetime-picker";
-import dayjs from "dayjs";
 
 import Main from "./Main";
-import { TouchableOpacity } from "react-native-gesture-handler";
+
+import DateInput from "./DateInput";
+import TimeInput from "./TimeInput";
 
 const styles = StyleSheet.create({
   container: {
@@ -21,24 +21,11 @@ const styles = StyleSheet.create({
   }
 });
 
+const onConfirmDate = data => {
+  console.log("Confirmed", data);
+};
+
 const AddReminder = () => {
-  const now = dayjs();
-
-  const [date, setDate] = useState(now);
-  const [isDatePickerVisible, setIsDatePickerVisible] = useState(false);
-  const [isTimePickerVisible, setIsTimePickerVisible] = useState(false);
-
-  const onFocusDateInput = () => {
-    setIsDatePickerVisible(true);
-  };
-
-  const onFocusTimeInput = () => {
-    setIsTimePickerVisible(true);
-  };
-
-  console.log("DATE", typeof date, date);
-  console.log("dayjs", typeof dayjs(), dayjs());
-
   return (
     <Main>
       <View style={styles.container}>
@@ -49,59 +36,10 @@ const AddReminder = () => {
           leftIconContainerStyle={{ marginHorizontal: 10 }}
         />
       </View>
-      <TouchableOpacity onPress={onFocusDateInput}>
-        <View style={styles.container} pointerEvents="none">
-          <Input
-            editable={false}
-            value={`${date
-              .add(1, "day")
-              .date()}/${date.month()}/${date.year()}`}
-            leftIcon={{ type: "font-awesome", name: "calendar" }}
-            label="Day"
-            leftIconContainerStyle={{ marginHorizontal: 10 }}
-          />
-        </View>
-      </TouchableOpacity>
 
-      <TouchableOpacity onPress={onFocusTimeInput}>
-        <View style={styles.container} pointerEvents="none">
-          <Input
-            editable={false}
-            value={`${date.hour()}:${date.minute()}`}
-            leftIcon={{ type: "feather", name: "clock" }}
-            label="Time"
-            leftIconContainerStyle={{ marginHorizontal: 10 }}
-          />
-        </View>
-      </TouchableOpacity>
+      <DateInput onConfirm={onConfirmDate} />
 
-      <DateTimePicker
-        isVisible={isDatePickerVisible}
-        mode="date"
-        minimumDate={new Date(dayjs())}
-        onCancel={() => {
-          setIsDatePickerVisible(false);
-        }}
-        onConfirm={data => {
-          setIsDatePickerVisible(false);
-          setDate(dayjs(data));
-        }}
-      />
-
-      <DateTimePicker
-        isVisible={isTimePickerVisible}
-        mode="time"
-        // minimumDate={new Date(Date.now())}
-        onCancel={() => {
-          setIsTimePickerVisible(false);
-        }}
-        onConfirm={data => {
-          // MILES WHY IS THIS COMING OUT 12 HOURS EARLIER??
-          console.log("CONFIRM DATA", dayjs(data));
-          setDate(dayjs(data));
-          setIsTimePickerVisible(false);
-        }}
-      />
+      <TimeInput onConfirm={onConfirmDate} />
     </Main>
   );
 };

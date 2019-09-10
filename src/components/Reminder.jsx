@@ -37,9 +37,7 @@ const Reminder = ({ item, theme, navigation }) => {
 
   return (
     <TouchableOpacity
-      onPress={() =>
-        navigation.navigate("EditReminder", { item, title: "Edit reminder" })
-      }
+      onPress={() => navigation.navigate("EditReminder", { item })}
       style={styles.container}
     >
       <Text h3>{item.reminderText}</Text>

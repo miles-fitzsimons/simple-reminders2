@@ -22,7 +22,11 @@ const styles = StyleSheet.create({
 });
 
 const onConfirmDate = data => {
-  console.log("Confirmed", data);
+  console.log("Confirmed date", data);
+};
+
+const onConfirmTime = data => {
+  console.log("Confirmed time", data);
 };
 
 const AddReminder = () => {
@@ -39,7 +43,7 @@ const AddReminder = () => {
 
       <DateInput onConfirm={onConfirmDate} />
 
-      <TimeInput onConfirm={onConfirmDate} />
+      <TimeInput onConfirm={onConfirmTime} />
     </Main>
   );
 };

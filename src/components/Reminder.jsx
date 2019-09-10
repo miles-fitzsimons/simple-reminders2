@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, View, Dimensions, TouchableOpacity } from "react-native";
 import { Icon, Text, withTheme } from "react-native-elements";
+import { withNavigation } from "react-navigation";
 
 const getStyles = theme =>
   StyleSheet.create({
@@ -10,6 +11,7 @@ const getStyles = theme =>
       flexDirection: "column",
       alignItems: "center",
       marginBottom: 20,
+      // MILES margin top first child 20
       borderColor: "black",
       borderWidth: 2,
       borderRadius: 5,
@@ -29,15 +31,13 @@ const getStyles = theme =>
     }
   });
 
-const Reminder = ({ item, theme }) => {
+const Reminder = ({ item, theme, navigation }) => {
   const date = new Date(item.dueDate);
   const styles = getStyles(theme);
 
   return (
     <TouchableOpacity
-      onPress={() => {
-        console.log("PRESS");
-      }}
+      onPress={() => navigation.navigate("EditReminder", { item })}
       style={styles.container}
     >
       <Text h3>{item.reminderText}</Text>
@@ -86,4 +86,4 @@ const Reminder = ({ item, theme }) => {
   );
 };
 
-export default withTheme(Reminder);
+export default withNavigation(withTheme(Reminder));

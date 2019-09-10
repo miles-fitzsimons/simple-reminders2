@@ -59,7 +59,7 @@ const TimeInput = ({ onConfirm }) => {
           var time = moment(result).tz(timezone);
           setIsTimePickerVisible(false);
           setSelectedTime(time);
-          onConfirm(time);
+          onConfirm(time.format());
         }}
       />
     </>

@@ -4,6 +4,7 @@ import { AsyncStorage, ScrollView } from "react-native";
 
 import Reminder from "./Reminder";
 
+// MILES MOVE ME INTO A FILE
 const initialState = [
   {
     reminderText: "Feed the cat",
@@ -16,12 +17,12 @@ const initialState = [
     dueDate: new Date(2019, 10, 25, 13, 22)
   },
   {
-    reminderText: "Top up Snapper",
+    reminderText: "Do a chore",
     repeats: true,
     dueDate: new Date(2019, 10, 25, 13, 22)
   },
   {
-    reminderText: "Top up Snapper",
+    reminderText: "Take a photo",
     repeats: true,
     dueDate: new Date(2019, 10, 25, 13, 22)
   },
@@ -31,6 +32,10 @@ const initialState = [
     dueDate: new Date(2020, 3, 9, 4, 3)
   }
 ];
+
+const onPressReminder = input => () => {
+  console.log("Again", input);
+};
 
 const RemindersList = () => {
   const [data, setData] = useState(null);
@@ -54,7 +59,13 @@ const RemindersList = () => {
       <View>
         {data &&
           data.map((item, i) => {
-            return <Reminder item={item} key={`Reminder ${i}`} />;
+            return (
+              <Reminder
+                item={item}
+                key={`Reminder ${i}`}
+                onPress={onPressReminder}
+              />
+            );
           })}
       </View>
     </ScrollView>

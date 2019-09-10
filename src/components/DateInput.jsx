@@ -60,7 +60,7 @@ const DateInput = ({ onConfirm }) => {
           var date = moment(result).tz(timezone);
           setIsDatePickerVisible(false);
           setSelectedDate(date);
-          onConfirm(date);
+          onConfirm(date.format());
         }}
       />
     </>

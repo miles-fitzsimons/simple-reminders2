@@ -1,7 +1,9 @@
-Refactor AddReminder
-uninstall dayjs and device info 
+ 
 
 Put <Main> Around evrything
+Put theme Around evrything
 refactor everything
 make months display in words
 tomorrow, next day etc
+settings, menu
+words and actions in header

@@ -6,15 +6,24 @@ import Home from "./Home";
 
 const AppNavigator = createStackNavigator({
   Home: {
-    screen: Home
+    screen: Home,
     // screen: AddReminder
+    navigationOptions: {
+      headerTitle: "Hi there"
+    }
   },
 
   EditReminder: {
-    screen: EditReminder
+    screen: EditReminder,
+    navigationOptions: {
+      headerTitle: "Edit reminder"
+    }
   },
   AddReminder: {
-    screen: AddReminder
+    screen: AddReminder,
+    navigationOptions: {
+      headerTitle: "Add reminder"
+    }
   }
 });
 

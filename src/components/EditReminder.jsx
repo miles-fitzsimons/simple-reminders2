@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { Text, View } from "react-native";
+import { Dimensions, StyleSheet, Text, View } from "react-native";
 import { AsyncStorage, ScrollView } from "react-native";
+import { Input } from "react-native-elements";
 
+import DateInput from "./DateInput";
+import Main from "./Main";
 import Reminder from "./Reminder";
+import TimeInput from "./TimeInput";
 
 const EditReminder = ({ navigation }) => {
+  console.log("nav", navigation);
+
+  const xx = navigation.getParam("title");
+  console.log("xxxx", xx);
+
   const reminder = navigation.getParam("item");
   console.log("remin", reminder);
 
@@ -22,8 +31,12 @@ const EditReminder = ({ navigation }) => {
     }
   });
 
-  const onConfirmDate = data => {
-    console.log("Confirmed", data);
+  const onConfirmDate = date => {
+    console.log("Confirmed date", date);
+  };
+
+  const onConfirmTime = time => {
+    console.log("Confirmed time", time);
   };
 
   return (
@@ -39,7 +52,7 @@ const EditReminder = ({ navigation }) => {
 
       <DateInput onConfirm={onConfirmDate} />
 
-      <TimeInput onConfirm={onConfirmDate} />
+      <TimeInput onConfirm={onConfirmTime} />
     </Main>
   );
 };

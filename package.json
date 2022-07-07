@@ -13,7 +13,7 @@
     "dayjs": "^1.8.16",
     "expo": "^34.0.1",
     "expo-localization": "^6.0.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "moment-timezone": "^0.5.26",
     "react": "16.8.3",
     "react-dom": "^16.8.6",
